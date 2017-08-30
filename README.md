@@ -27,7 +27,8 @@ Find this bit of code around line 542-544:
 ```php 
 <wp:post_type><?php echo wxr_cdata( $post->post_type ); ?></wp:post_type>
 <wp:post_password><?php echo wxr_cdata( $post->post_password ); ?></wp:post_password>
-<wp:is_sticky><?php echo intval( $is_sticky ); ?></wp:is_sticky>```
+<wp:is_sticky><?php echo intval( $is_sticky ); ?></wp:is_sticky>
+```
 
 Add this below
 
@@ -35,7 +36,8 @@ Add this below
 <?php	if ( has_post_thumbnail($post->ID) ) : ?>
 <?php $image =  wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full') ?>
 <wp:attachment_url><?php echo wxr_cdata( $image[0] ); ?></wp:attachment_url>
-<?php 	endif; ?>```
+<?php 	endif; ?>
+```
 
 After that all those WPXML/RSS files will have a link to your full-sized featured image available to either download or link remotely. You can obviously modify the get_post_thumbnail_id function to get any size you desire, and add more XML objects for different sizes.
 
